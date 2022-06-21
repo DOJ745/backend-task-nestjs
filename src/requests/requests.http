@@ -15,3 +15,6 @@ Content-Type: application/json
     "lastName": "Bobinsky",
     "image": "temp.jpg"
 }
+
+###
+POST http://localhost:3000/upload-img

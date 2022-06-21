@@ -10,3 +10,8 @@ html(lang="en")
     ul
       each user in testUsers
         li #{user.firstName} #{user.lastName}
+    
+    form(enctype='multipart/form-data' method='POST' action='/upload-img')
+      p
+        input(type='file' name='file' multiple accept='image/*')
+        input(type='submit' value='Send file')
