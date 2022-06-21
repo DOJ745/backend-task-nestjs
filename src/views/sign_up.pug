@@ -1,0 +1,39 @@
+extends basic_layout 
+
+block content
+    h1 Sign up
+    form(method='POST' action='/sign-up')
+        label(for='emailField') Input email: 
+        input#emailField(
+            type='email'
+            name='email'
+            placeholder='myemail@mail.com'
+            required=''
+            minlength=5
+            maxlength=48)
+        br 
+        br
+        label(for='firstNameField') Input first name: 
+        input#firstNameField(
+            type='text'
+            name='firstName'
+            placeholder='John'
+            required=''
+            minlength=2
+            maxlength=24)   
+
+        br
+        br
+        label(for='lastNameField') Input last name: 
+        input#lastNameField(
+            type='text'
+            name='lastName'
+            placeholder='Doe'
+            required=''
+            minlength=2
+            maxlength=24)    
+
+        br
+        button(type='submit') Sign up
+        br
+        a(href='/') Sign in    

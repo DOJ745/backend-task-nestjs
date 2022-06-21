@@ -13,6 +13,9 @@ export class AppController {
   @Render('index')
   index() { return { testUsers }; }
 
+  @Get('/sign-up')
+  @Render('sign_up')
+
   @Post('/user-pdf')
   async generatePdfByEmail(@Body() body: {email: string}) {
     return await { message: 'PDF was saved successfully?', status: "true", "email": body.email };
