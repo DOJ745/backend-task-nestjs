@@ -1,44 +1,43 @@
 extends basic_layout 
 
 block content
-    h1 Sign up
-    form(enctype='multipart/form-data' method='POST' action='/sign-up')
-        label(for='emailField') Input email: 
-        input#emailField(
-            type='email'
-            name='email'
-            placeholder='myemail@mail.com'
-            required=''
-            minlength=5
-            maxlength=48)
-        br 
-        br
-        label(for='firstNameField') Input first name: 
-        input#firstNameField(
-            type='text'
-            name='firstName'
-            placeholder='John'
-            required=''
-            minlength=2
-            maxlength=24)   
+    h1.text-center Sign up
+    div.container.h-100
+        div.row.align-items-center.justify-content-center.h-100
+            form.col-6.w-25(enctype='multipart/form-data' method='POST' action='/sign-up')
+                div.form-group
+                    label.form-label(for='emailField') Input email: 
+                    input#emailField.form-control(
+                        type='email'
+                        name='email'
+                        pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+                        placeholder='myemail@mail.com'
+                        required=''
+                        minlength=5
+                        maxlength=48)
 
-        br
-        br
-        label(for='lastNameField') Input last name: 
-        input#lastNameField(
-            type='text'
-            name='lastName'
-            placeholder='Doe'
-            required=''
-            minlength=2
-            maxlength=24)
+                    label.form-label(for='firstNameField') Input first name: 
+                    input#firstNameField.form-control(
+                        type='text'
+                        name='firstName'
+                        placeholder='John'
+                        required=''
+                        minlength=2
+                        maxlength=24)   
 
-        br
-        br
-        label(for='imageField') Choose image: 
-        input#imageField(type='file' name='image' multiple accept='image/*' required='')   
+                    label.form-label(for='lastNameField') Input last name: 
+                    input#lastNameField.form-control(
+                        type='text'
+                        name='lastName'
+                        placeholder='Doe'
+                        required=''
+                        minlength=2
+                        maxlength=24)
 
-        br
-        button(type='submit') Sign up
-        br
-        a(href='/') Sign in    
+                    label.form-label(for='imageField') Choose image: 
+                    input#imageField.form-control(type='file' name='image' multiple accept='image/*' required='')   
+
+                    br
+                    div.row.form-signin
+                        button.col.btn.btn-primary.m-1(type='submit') Sign up
+                        a.col.btn.btn-primary.m-1(href='/') Sign in    

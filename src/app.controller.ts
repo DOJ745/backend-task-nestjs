@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Render, Body, Redirect, Res, HttpException, HttpStatus, Param } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from "./models/user.model";
 import { PostgresDataSource } from './app.datasource';
@@ -31,20 +31,6 @@ export class AppController {
   @Get('/sign-up')
   @Render('sign_up')
   signUp(){}
-
-  @Post('/sign-in')
-  async signIn(@Body() body: {email: string}, @Res() res) {
-    const dataSource = PostgresDataSource;
-    const userRepository = dataSource.getRepository(User);
-    const user = await userRepository.findOne({
-      where: { email: body.email }
-    });
-    if(user !== null){ 
-      console.log("SIGN IN USER email - " + user.email);
-      return res.redirect('/user/' + user.email);
-    }
-    throw new HttpException('Wrong email!', HttpStatus.BAD_REQUEST);
-  }
 
   @Post('/user-pdf')
   async generatePdfByEmail(@Body() body: {email: string}) {
