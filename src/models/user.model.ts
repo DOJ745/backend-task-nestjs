@@ -13,18 +13,23 @@ export class User extends BaseEntity {
     lastName: string;
     @Column()
     image: string;
+
+    @Column({type: 'bytea', nullable: true})
+    pdf: Uint8Array;
     
     constructor (
       email: string, 
       firstName: string, 
       lastName: string, 
       image?: string, 
-      id?: number) {
+      id?: number,
+      pdf?: Uint8Array) {
         super();
         this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.image = image;
+        this.pdf = pdf;
     }
 }
