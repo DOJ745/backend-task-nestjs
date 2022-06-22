@@ -2,7 +2,7 @@ extends basic_layout
 
 block content
     h1 Sign up
-    form(method='POST' action='/sign-up')
+    form(enctype='multipart/form-data' method='POST' action='/sign-up')
         label(for='emailField') Input email: 
         input#emailField(
             type='email'
@@ -31,7 +31,12 @@ block content
             placeholder='Doe'
             required=''
             minlength=2
-            maxlength=24)    
+            maxlength=24)
+
+        br
+        br
+        label(for='imageField') Choose image: 
+        input#imageField(type='file' name='image' multiple accept='image/*' required='')   
 
         br
         button(type='submit') Sign up
