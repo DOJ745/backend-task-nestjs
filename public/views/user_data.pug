@@ -7,9 +7,9 @@ block content
     h3 Image: 
     img(src='../../uploads/' + image, width='180px' height='180px')
     br
-    br
-    form(action='/user-update')
-        input(type='submit' value='UPDATE INFO')
-    br
-    form(method='DELETE' action='/user')
-        button(type='submit') DELETE INFO
+    form.col-6.w-25(action='/user-update')
+        div.form-group
+            button.col.btn.btn-primary.m-1(type='submit') UPDATE INFO
+    form.col-6.w-25(method='DELETE' action='/user')
+        div.form-group
+            button.col.btn.btn-danger.m-1(type='submit') DELETE INFO
