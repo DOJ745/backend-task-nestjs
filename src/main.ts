@@ -7,7 +7,8 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.setBaseViewsDir(join(__dirname, '../src/views'));
+  app.useStaticAssets(join(__dirname, '../public'));
+  app.setBaseViewsDir(join(__dirname, '../public/views'));
   app.setViewEngine('pug');
   await app.listen(3000);
 }
