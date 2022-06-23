@@ -44,18 +44,14 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+## DB Docker setup
+```
+$ sudo docker run --name local_pg \
+  -e POSTGRES_ROOT_PASSWORD=toor \
+  -e POSTGRES_DATABASE=test \
+  -e POSTGRES_USER=test \
+  -e POSTGRES_PASSWORD=test \
+  -d -p 127.0.0.1:5432:5432 postgres:10.8-alpine
 ```
 
 ## Support
