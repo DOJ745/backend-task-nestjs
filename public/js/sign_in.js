@@ -18,10 +18,7 @@ $(document).ready(function() {
             })
             .fail((jqXHR) => {
                 let errorData = $.parseJSON(jqXHR.responseText)
-                /*resMsg.css("opacity", "0.1");
-                resMsg.animate({opacity: '1.0'}, 633);
-                resMsg.html(errorData.message)
-                resMsg.removeAttr('hidden')*/
+                console.log(errorData.message)
             })
         event.preventDefault()
     }

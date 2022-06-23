@@ -1,18 +1,29 @@
 extends basic_layout 
+include mixins/modal_mixins
 
 block content
-    h3 Email: #{email}
-    h3 First name: #{firstName}
-    h3 Last name: #{lastName}
-    h3 Image: 
-    img(src='../../uploads/' + image, width='180px' height='180px')
+    h3#userEmail Email: #{email}
+    h3#userFirstName First name: #{firstName}
+    h3#userLastName Last name: #{lastName}
+    h3 Image:
+    img#userImage(src='../../uploads/' + image, width='180px' height='180px')
     br
     form.col-6.w-25(action='/user-pdf/'+ email)
         div.form-group
             button.col.btn.btn-success.m-1(type='submit') UPLOAD PDF
-    form.col-6.w-25(action='/user-update')
-        div.form-group
-            button.col.btn.btn-primary.m-1(type='submit') UPDATE INFO
-    form.col-6.w-25(method='DELETE' action='/user')
-        div.form-group
-            button.col.btn.btn-danger.m-1(type='submit') DELETE INFO
+    
+    button.col.btn.btn-primary.m-1(
+                type='button'
+                data-bs-toggle='modal',
+                data-bs-target='#updateModal') UPDATE
+
+    button.col.btn.btn-danger.m-1(
+                type='button'
+                data-bs-toggle='modal',
+                data-bs-target='#deleteModal') DELETE
+
+    +createModals()
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous')
+    script(src='../js/user_update.js')
+    script(src='../js/user_delete.js')  

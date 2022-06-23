@@ -1,0 +1,84 @@
+mixin formModalByAction(actionName)
+    case actionName
+        when "update"
+            #updateModal.modal.fade(
+                tabindex='-1',
+                aria-labelledby='modalLabel',
+                aria-hidden='true')
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h5#modalLabel.modal-title Update user
+                            button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+                        .modal-body
+                            p#resUpdateMsg(hidden='' style='color: red') Error response
+                            form#itemUpdateForm(action="/user" method="PUT" enctype='multipart/form-data')
+                                input#oldEmailField.form-control(
+                                    type='email'
+                                    name='oldEmail'
+                                    value=''
+                                    hidden='')
+                                label.col-form-label Input new first name:
+                                input#firstNameUpdateField.form-control(
+                                    type='text'
+                                    value=''
+                                    required=''
+                                    name="firstName"
+                                    minlength=2
+                                    maxlength=24)
+
+                                label.col-form-label Input new last name:
+                                input#lastNameUpdateField.form-control(
+                                    type='text'
+                                    value=''
+                                    required=''
+                                    name="lastName"
+                                    minlength=2
+                                    maxlength=24)
+
+                                label.form-label(for='emailUpdateField') Input new email: 
+                                input#emailUpdateField.form-control(
+                                    type='email'
+                                    name='email'
+                                    pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+                                    placeholder='myemail@mail.com'
+                                    required=''
+                                    minlength=5
+                                    maxlength=48)
+
+                                label.col-form-label Input new image:
+                                input#imageUpdateField.form-control(type='file' name="image" multiple accept='image/*')
+                                .row
+                                    button.col.btn.btn-primary.m-1(type='submit') Save changes
+                                    button.col.btn.btn-secondary.m-1(type='button', data-bs-dismiss='modal') Close
+        when "delete"
+            #deleteModal.modal.fade(
+                tabindex='-1',
+                aria-labelledby='modalLabel',
+                aria-hidden='true')
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h5#modalLabel.modal-title Delete user
+                            button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+                        .modal-body
+                            p(style='color: red') Be careful with it!
+                            p#resDelMsg(hidden='' style='color: red') Error response
+                            form#itemDeleteForm(action='/user' method="DELETE")
+                                p#elementEmail
+                                label.col-form-label Input user email:
+                                input#emailDeleteField.form-control(
+                                    type='email'
+                                    value=''
+                                    required=''
+                                    name="email"
+                                    pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+                                    minlength=5
+                                    maxlength=48)
+                                .row
+                                    button.col.btn.btn-danger.m-1(type='submit') DELETE
+                                    button.col.btn.btn-secondary.m-1(type='button', data-bs-dismiss='modal') Close
+
+mixin createModals()
+    +formModalByAction("update")
+    +formModalByAction("delete")
