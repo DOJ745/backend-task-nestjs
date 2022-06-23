@@ -11,16 +11,8 @@ export class UsersService {
     private usersRepository: Repository<User>
   ) {}
  
-  async addPdf(pdfBuffer: Buffer) {
-    //const pdf = await this.databaseFilesService.uploadDatabaseFile(pdfBuffer);
-    //await this.usersRepository.update();
-    //return pdf;
-  }
+  async addPdf(pdfBuffer: Buffer) {}
 
-  async uploadDatabaseFile(dataBuffer: Buffer) {
-    // const newFile = await this.databaseFilesRepository.create( {data: dataBuffer} )
-    // await this.databaseFilesRepository.save(newFile);
-    // return newFile;
-  }
+  async uploadDatabaseFile(dataBuffer: Buffer) {}
 
 }

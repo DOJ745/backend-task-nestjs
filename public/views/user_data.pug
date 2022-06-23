@@ -7,6 +7,9 @@ block content
     h3 Image: 
     img(src='../../uploads/' + image, width='180px' height='180px')
     br
+    form.col-6.w-25(action='/user-pdf/'+ email)
+        div.form-group
+            button.col.btn.btn-success.m-1(type='submit') UPLOAD PDF
     form.col-6.w-25(action='/user-update')
         div.form-group
             button.col.btn.btn-primary.m-1(type='submit') UPDATE INFO

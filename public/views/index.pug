@@ -1,7 +1,7 @@
 extends basic_layout 
 
 block content
-    h1 Main page
+    h1.text-center Main page
     div.container.h-100
         div.row.align-items-center.justify-content-center.h-100
           h3.text-center Use user email from the list to sign in
@@ -20,6 +20,21 @@ block content
             div.row.form-signin
               button.col.btn.btn-primary.m-1(type='submit') Sign in
               a.col.btn.btn-primary.m-1(href='/sign-up') Sign up
+
+          h3.text-center Generate PDF for user by email
+          form#pdfForm.col-6.w-25(method='POST' action='/user-pdf')
+            div.form-group
+              label.form-label(for='pdfEmailField') Email: 
+              input#pdfEmailField.form-control(
+                type='email'
+                name='email'
+                pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+                placeholder='myemail@mail.com'
+                required=''
+                minlength=5
+                maxlength=48)
+              div.row.form-signin
+                button.col.btn.btn-primary.m-1(type='submit') Generate PDF
 
     h1 Users list
     ul
