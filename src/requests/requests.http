@@ -1,25 +1,12 @@
-POST http://localhost:3000/user-pdf
-Content-Type: application/json
-
-{
-    "email": "testemail@gmail.com"
-}
-
-###
-POST http://localhost:3000/user
-Content-Type: application/json
-
-{
-    "email": "testemail@gmail.com",
-    "firstName": "Bob",
-    "lastName": "Bobinsky",
-    "image": "temp.jpg"
-}
-
 ###
 POST http://localhost:3000/user-pdf
 Content-Type: application/json
-
 {
     "email": "testemail2@gmail.com"
+}
+
+DELETE http://localhost:3000/user
+Content-Type: application/json
+{
+    "email": "testemail@gmail.com"
 }
